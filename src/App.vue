@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navigation/>
+    <div class="isolation"></div>
+    <router-view></router-view>
+    <Footer />
+    <Copyright></Copyright>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+  import Navigation from './components/Navigation'
+  import Footer from './components/Footer'
+  import Copyright from './components/Copyright'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+    components: {Navigation, Footer, Copyright},
 }
 </script>
 
-<style>
+<style lang="stylus">
+@import "./assets/style/common.scss";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  .isolation {
+    margin-top: 96px;
+  }
 }
 </style>
