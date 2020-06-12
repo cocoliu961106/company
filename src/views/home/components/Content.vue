@@ -3,21 +3,24 @@
         <div class="module">
             <h3 class="sub-title">厚德服务</h3>
             <div class="row">
-                <div class="col frame1" :style="{backgroundImage: `url(${src1})`}"></div>
-                <div class="col frame1"></div>
-                <div class="col frame1"></div>
+                <Service v-for="val in services" :key="val.id" :src1="val.src1" :bottom="val.bottom" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    const src1 = require('assets/images/solution_profile.png')
+    import Service from '@/components/Service'
     export default {
         name: "Content",
+        components: {Service},
         data() {
             return {
-                src1: src1
+                services: [
+                    {id: 1, src1: require('assets/images/solution_profile.png'), bottom: '先进的高精度设备'},
+                    {id: 2, src1: require('assets/images/solution_profile.png'), bottom: '重视工厂及周边地区的环境保护'},
+                    {id: 3, src1: require('assets/images/solution_profile.png'), bottom: '水处理及地坪'}
+                    ]
             }
         }
     }
@@ -40,11 +43,6 @@
         .row {
             display: flex
             justify-content: space-between
-            .col {
-                height: 350px;
-                padding: 0 5px;
-                flex: auto
-            }
         }
     }
 }
