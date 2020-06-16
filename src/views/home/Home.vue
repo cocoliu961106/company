@@ -1,6 +1,6 @@
 <template>
     <div>
-        <RotationImage/>
+        <RotationImage :initialSpeed="10"/>
         <Content/>
     </div>
 </template>
